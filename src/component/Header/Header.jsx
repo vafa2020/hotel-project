@@ -6,6 +6,7 @@ import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRange } from "react-date-range";
 import { format } from "date-fns";
+import { createSearchParams, useNavigate } from "react-router-dom";
 export const Header = () => {
   const [destination, setDestination] = useState("");
   const [showOption, setShowOption] = useState(false);
@@ -31,7 +32,20 @@ export const Header = () => {
       };
     });
   };
+  /////
+  const navigate = useNavigate();
 
+  const searchHandler = () => {
+    const encodeParams = createSearchParams({
+      data: JSON.stringify(rangeDate),
+      destination: destination,
+      options: JSON.stringify(options),
+    });
+    navigate({
+      pathname: "/hotels",
+      search: encodeParams.toString(),
+    });
+  };
   return (
     <div className="header">
       <div className="headerSearch">
@@ -51,7 +65,10 @@ export const Header = () => {
         <div className="headerSearchItem">
           <HiCalendar className="headerIcon dateIcon" />
           <div className="dateDropDown" onClick={() => setShowDate(!showDate)}>
-            {`${format(rangeDate[0].startDate,'MM/dd/yyyy')} To ${format(rangeDate[0].endDate,'MM/dd/yyyy')}`}
+            {`${format(rangeDate[0].startDate, "yyyy/MM/dd")} To ${format(
+              rangeDate[0].endDate,
+              "yyyy/MM/dd"
+            )}`}
           </div>
           {showDate && (
             <DateRange
@@ -65,7 +82,7 @@ export const Header = () => {
           <span className="seperator"></span>
         </div>
         <div className="headerSearchItem">
-          <div id="optionDropDown" onClick={() => setShowOption(!setOptions)}>
+          <div id="optionDropDown" onClick={() => setShowOption(!showOption)}>
             {options.adult} adult &bull;&nbsp;{options.children} children
             &bull;&nbsp;
             {options.room} room
@@ -81,7 +98,7 @@ export const Header = () => {
           <span className="seperator"></span>
         </div>
         <div className="headerSearchItem">
-          <button className="headerSearchBtn">
+          <button className="headerSearchBtn" onClick={searchHandler}>
             <HiSearch className="headerIcon" />
           </button>
         </div>
