@@ -1,10 +1,11 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useFetch } from "../hook/useFetch";
 
 const hotelContext = createContext();
 
 export const HotelProvider = ({ children }) => {
+  const [currentHotel, setCurrentHotel] = useState({});
   const [searchParams] = useSearchParams();
   const destination = searchParams.get("destination");
   const room = JSON.parse(searchParams.get("options"))?.room;
@@ -19,7 +20,9 @@ export const HotelProvider = ({ children }) => {
   //   );
   //(Full-text search)/وقتی تو کوِئری از ----q---- استفاده میکنیم یعنی کلمه سرچ شده تو همه ی پراپرتی های سرور سرچ میشود
   return (
-    <hotelContext.Provider value={{ hotels, isLoading }}>
+    <hotelContext.Provider
+      value={{ hotels, isLoading, currentHotel, setCurrentHotel }}
+    >
       {children}
     </hotelContext.Provider>
   );

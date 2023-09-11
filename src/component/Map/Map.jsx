@@ -11,7 +11,7 @@ export const Map = () => {
   const latitude = searchparams.get("lat");
   const longitude = searchparams.get("lon");
   const { hotels } = useHotel();
-  const { isGeoLoading, geoError, geoPosition, getGeoPosition } =
+  const { isGeoLoading, geoPosition, getGeoPosition } =
     useGeoLocation();
   useEffect(() => {
     if (latitude && longitude) {

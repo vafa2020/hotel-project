@@ -1,28 +1,26 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useFetch } from "../../hook/useFetch";
+import { useHotel } from "../../context/HotelProvider";
+import { useEffect } from "react";
 
 export const SingleHotel = () => {
-  const [hotel, setHotel] = useState({});
-  const params = useParams();
-  const id = parseInt(params.id);
+  const { id } = useParams();
+  const { isLoading, data } = useFetch(`http://localhost:5000/hotels/${id}`);
+  const { setCurrentHotel } = useHotel();
   useEffect(() => {
-    fetchHotel(id);
-  }, [id]);
-
-  async function fetchHotel(id) {
-    const { data } = await axios.get(`http://localhost:5000/hotels/${id}`);
-    setHotel(data);
+    setCurrentHotel(data);
+  }, [data, setCurrentHotel]);
+  if (isLoading) {
+    return <p>loading...</p>;
   }
   return (
-    <div className="searchItem">
-      <img src={hotel?.picture_url?.url} alt={hotel.name} />
-      <div className="searchItemDesc">
-        <p className="location">{hotel.smart_location}</p>
-        <p className="name">{hotel.name}</p>
-        <p className="price">
-          €&nbsp;{hotel.price}&nbsp;<span>night</span>
-        </p>
+    <div className="room">
+      <div className="roomDetail">
+        <h2>{data.name}</h2>
+        <div>
+          {data.number_of_reviews} reviews &bull; {data.smart_location}
+        </div>
+        <img src={data?.xl_picture_url} alt={data.name} />
       </div>
     </div>
   );
