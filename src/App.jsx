@@ -4,18 +4,22 @@ import { LocationList } from "./component/LocationList/LocationList";
 import "./App.css";
 import { AppLayout } from "./component/AppLayout/AppLayout";
 import { Hotels } from "./component/Hotels/Hotels";
+import { HotelProvider } from "./context/HotelProvider";
+import { SingleHotel } from "./component/SingleHotel/SingleHotel";
 
 function App() {
   return (
     <>
       <Header />
-      <Routes>
-        <Route path="/" element={<LocationList />} />
-        <Route path="/hotels" element={<AppLayout />}>
-          <Route index element={<Hotels />} />
-          <Route path=":id" element={<>single hotels</>} />
-        </Route>
-      </Routes>
+      <HotelProvider>
+        <Routes>
+          <Route path="/" element={<LocationList />} />
+          <Route path="/hotels" element={<AppLayout />}>
+            <Route index element={<Hotels />} />
+            <Route path=":id" element={<SingleHotel />} />
+          </Route>
+        </Routes>
+      </HotelProvider>
     </>
   );
 }

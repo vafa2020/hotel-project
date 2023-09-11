@@ -1,22 +1,32 @@
-import { useSearchParams } from "react-router-dom";
-import { useFetch } from "../../hook/useFetch";
+import { Link } from "react-router-dom";
+import { useHotel } from "../../context/HotelProvider";
 
 export const Hotels = () => {
-  const [searchParams] = useSearchParams();
-  const destination = searchParams.get("destination");
-  const room = JSON.parse(searchParams.get("options")).room;
-  const { data, isLoading } = useFetch(
-    "http://localhost:5000/hotels",
-    `smart_location_like=${destination || ""}&accommodates_gte=${room || 1}`
-  );
-  ///
-  //   const { data, isLoading } = useFetch(
-  //     "http://localhost:5000/hotels",
-  //     `q=${destination|| ""}&accommodates_gte=${room || 1}`
-  //   );
-  //(Full-text search)/وقتی تو کوِئری از ----q---- استفاده میکنیم یعنی کلمه سرچ شده تو همه ی پراپرتی های سرور سرچ میشود 
+  const { hotels, isLoading } = useHotel();
+
   if (isLoading) {
     return <p>loading...</p>;
   }
-  return <div>{data.length}</div>;
+  return (
+    <div className="searchList">
+      <h2>Search Results ({hotels.length})</h2>
+      {hotels.map((item) => (
+        <Link
+          key={item.id}
+          to={`/hotels/${item.id}?lat=${item.latitude}&lon=${item.longitude}`}
+        >
+          <div className="searchItem">
+            <img src={item?.picture_url?.url} alt={item.name} />
+            <div className="searchItemDesc">
+              <p className="location">{item.smart_location}</p>
+              <p className="name">{item.name}</p>
+              <p className="price">
+                €&nbsp;{item.price}&nbsp;<span>night</span>
+              </p>
+            </div>
+          </div>
+        </Link>
+      ))}
+    </div>
+  );
 };
