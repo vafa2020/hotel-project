@@ -3,7 +3,6 @@ import { useHotel } from "../../context/HotelProvider";
 
 export const Hotels = () => {
   const { hotels, isLoading, currentHotel } = useHotel();
-  console.log(currentHotel);
   if (isLoading) {
     return <p>loading...</p>;
   }
@@ -13,7 +12,7 @@ export const Hotels = () => {
       {hotels.map((item) => (
         <Link
           key={item.id}
-          to={`/hotels/${item.id}?lat=${item.latitude}&lon=${item.longitude}`}
+          to={`/hotels/${item.id}?lat=${item.latitude}&lng=${item.longitude}`}
         >
           <div
             className={
