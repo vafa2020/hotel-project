@@ -2,17 +2,21 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLatLng } from "../../hook/useLatLng";
+import { useBookmark } from "../../context/BookmarkProvider";
 
 const BASE_URL_GEO = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
 export const BookmarkAdd = () => {
+  const { createNewBookMark } = useBookmark();
   const [lat, lng] = useLatLng();
+  console.log(lat,lng);
   const [inputValues, setInputValues] = useState({
     country: "",
     cityName: "",
     countryCode: "",
   });
   const navigate = useNavigate();
+
 
   useEffect(() => {
     async function getLocation() {
@@ -33,15 +37,13 @@ export const BookmarkAdd = () => {
   }, [lat, lng]);
   const submitHandler = async (e) => {
     e.preventDefault();
-
     const newBookMark = {
       ...inputValues,
       latitude: lat,
       longitude: lng,
       host_location: `${inputValues.cityName} ${inputValues.country}`,
-      id: Math.floor(Math.random() * 10000),
     };
-    await axios.post("http://localhost:5000/bookmarks", newBookMark);
+    await createNewBookMark(newBookMark);
     navigate("/bookmark");
   };
   return (

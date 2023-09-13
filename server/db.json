@@ -1352,40 +1352,40 @@
       "id": 5
     },
     {
-      "cityName": "A Dakhla Oasis",
-      "country": "Egypt",
-      "countryCode": "EG",
-      "latitude": "25.02090651422749",
-      "longitude": "29.09059588509316",
-      "host_location": "A Dakhla Oasis Egypt",
+      "cityName": "Hassi Gara",
+      "country": "Algeria",
+      "countryCode": "DZ",
+      "latitude": "30.001950173208062",
+      "longitude": "1.9980944802199077",
+      "host_location": "Hassi Gara Algeria",
+      "id": 6
+    },
+    {
+      "cityName": "Astana",
+      "country": "Kazakhstan",
+      "countryCode": "KZ",
+      "latitude": "50.96880573431783",
+      "longitude": "71.53686197220736",
+      "host_location": "Astana Kazakhstan",
       "id": 7
     },
     {
-      "cityName": "Baba Kot",
-      "country": "Pakistan",
-      "countryCode": "PK",
-      "latitude": "28.43528783183169",
-      "longitude": "67.78003711374224",
-      "host_location": "Baba Kot Pakistan",
+      "cityName": "Isfahan",
+      "country": "Iran (Islamic Republic of)",
+      "countryCode": "IR",
+      "latitude": "32.539288337047424",
+      "longitude": "51.87408267846407",
+      "host_location": "Isfahan Iran (Islamic Republic of)",
       "id": 8
     },
     {
-      "country": "Spain",
-      "cityName": "Madrid",
-      "countryCode": "ES",
-      "latitude": "40.43299210593957",
-      "longitude": "-3.696259009780756",
-      "host_location": "Madrid Spain",
-      "id": 9507
-    },
-    {
-      "cityName": "Jebrat al Sheikh District",
-      "country": "Sudan (the)",
-      "countryCode": "SD",
-      "latitude": "14.79081652429784",
-      "longitude": "30.748142913214863",
-      "host_location": "Jebrat al Sheikh District Sudan (the)",
-      "id": 811
+      "cityName": "Dawakin Kudu",
+      "country": "Nigeria",
+      "countryCode": "NG",
+      "latitude": "11.832406267156314",
+      "longitude": "8.693585377973012",
+      "host_location": "Dawakin Kudu Nigeria",
+      "id": 9
     }
   ]
 }

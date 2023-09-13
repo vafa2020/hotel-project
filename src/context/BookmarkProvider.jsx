@@ -1,15 +1,53 @@
-import { createContext, useContext, useState } from "react";
-import { useFetch } from "../hook/useFetch";
+import { createContext, useContext, useEffect, useState } from "react";
+import axios from "axios";
 
 const bookmarkContext = createContext();
 
 export const BookmarkProvider = ({ children }) => {
   const [currentBookmark, setCurrentBookmark] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [bookMarkList, setBookMarkList] = useState([]);
 
-  const { data, isLoading } = useFetch("http://localhost:5000/bookmarks");
+  useEffect(() => {
+    async function getBookmarkList() {
+      setIsLoading(true);
+      try {
+        const { data } = await axios.get("http://localhost:5000/bookmarks");
+        setBookMarkList(data);
+      } catch (error) {
+        console.log(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    getBookmarkList();
+  }, []);
+
+  async function createNewBookMark(newBookMark) {
+    try {
+      setIsLoading(true);
+      const { data } = await axios.post(
+        "http://localhost:5000/bookmarks",
+        newBookMark
+      );
+      setCurrentBookmark(data);
+      setBookMarkList([...bookMarkList, data]);
+      console.log(data);
+    } catch (error) {
+      console.log(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
   return (
     <bookmarkContext.Provider
-      value={{ data, isLoading, currentBookmark, setCurrentBookmark }}
+      value={{
+        bookMarkList,
+        isLoading,
+        currentBookmark,
+        setCurrentBookmark,
+        createNewBookMark,
+      }}
     >
       {children}
     </bookmarkContext.Provider>

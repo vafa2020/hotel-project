@@ -12,7 +12,6 @@ import { useGeoLocation } from "../../hook/useGeoLocation";
 import { useLatLng } from "../../hook/useLatLng";
 export const Map = ({ MarkerList }) => {
   const [lat, lng] = useLatLng();
-  console.log(lat,lng,"map");
   const [mapCenter, setMapCenter] = useState([32.4279, 53.688]);
 
   ///this state is for button access your loction .👇
