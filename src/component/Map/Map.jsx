@@ -6,13 +6,13 @@ import {
   useMap,
   useMapEvent,
 } from "react-leaflet";
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useGeoLocation } from "../../hook/useGeoLocation";
 import { useLatLng } from "../../hook/useLatLng";
 export const Map = ({ MarkerList }) => {
   const [lat, lng] = useLatLng();
-  const [mapCenter, setMapCenter] = useState([32.4279, 53.688]);
+  const [mapCenter, setMapCenter] = useState([lat, lng]);
 
   ///this state is for button access your loction .👇
   const { isGeoLoading, geoPosition, getGeoPosition } = useGeoLocation();

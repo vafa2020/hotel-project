@@ -3,14 +3,14 @@ import { Map } from "../Map/Map";
 import { useBookmark } from "../../context/BookmarkProvider";
 
 export const BookMarkLayout = () => {
-  const { data } = useBookmark();
+  const { bookmark_list } = useBookmark();
 
   return (
     <div className="appLayout">
       <div className="sidebar">
         <Outlet />
       </div>
-      <Map MarkerList={data} />
+      <Map MarkerList={bookmark_list} />
     </div>
   );
 };

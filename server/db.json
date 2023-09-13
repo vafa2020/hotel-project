@@ -1325,67 +1325,49 @@
   ],
   "bookmarks": [
     {
-      "cityName": "Abalessa",
-      "country": "Algeria",
-      "countryCode": "DZ",
-      "latitude": "23.18455079512732",
-      "longitude": "3.795523257510883",
-      "host_location": "Abalessa Algeria",
-      "id": 1
-    },
-    {
-      "cityName": "Mahidasht",
+      "cityName": "Mashhad",
       "country": "Iran (Islamic Republic of)",
       "countryCode": "IR",
-      "latitude": "34.32869425037187",
-      "longitude": "46.724183117022086",
-      "host_location": "Mahidasht Iran (Islamic Republic of)",
-      "id": 4
+      "latitude": "36.22987352301493",
+      "longitude": "59.60297332225414",
+      "host_location": "Mashhad Iran (Islamic Republic of)",
+      "id": 9
     },
     {
-      "cityName": "Sanandaj",
+      "cityName": "Rafsanjan",
       "country": "Iran (Islamic Republic of)",
       "countryCode": "IR",
-      "latitude": "35.31372444726279",
-      "longitude": "47.03114358752335",
-      "host_location": "Sanandaj Iran (Islamic Republic of)",
-      "id": 5
-    },
-    {
-      "cityName": "Hassi Gara",
-      "country": "Algeria",
-      "countryCode": "DZ",
-      "latitude": "30.001950173208062",
-      "longitude": "1.9980944802199077",
-      "host_location": "Hassi Gara Algeria",
-      "id": 6
-    },
-    {
-      "cityName": "Astana",
-      "country": "Kazakhstan",
-      "countryCode": "KZ",
-      "latitude": "50.96880573431783",
-      "longitude": "71.53686197220736",
-      "host_location": "Astana Kazakhstan",
-      "id": 7
+      "latitude": "30.357471430197215",
+      "longitude": "56.1558029525488",
+      "host_location": "Rafsanjan Iran (Islamic Republic of)",
+      "id": 10
     },
     {
       "cityName": "Isfahan",
       "country": "Iran (Islamic Republic of)",
       "countryCode": "IR",
-      "latitude": "32.539288337047424",
-      "longitude": "51.87408267846407",
+      "latitude": "32.442567075075075",
+      "longitude": "51.8789563568947",
       "host_location": "Isfahan Iran (Islamic Republic of)",
-      "id": 8
+      "id": 11
     },
     {
-      "cityName": "Dawakin Kudu",
-      "country": "Nigeria",
-      "countryCode": "NG",
-      "latitude": "11.832406267156314",
-      "longitude": "8.693585377973012",
-      "host_location": "Dawakin Kudu Nigeria",
-      "id": 9
+      "cityName": "Najaf",
+      "country": "Iraq",
+      "countryCode": "IQ",
+      "latitude": "31.98012335736804",
+      "longitude": "44.088774802912894",
+      "host_location": "Najaf Iraq",
+      "id": 12
+    },
+    {
+      "cityName": "Wadi ad-Dawasir",
+      "country": "Saudi Arabia",
+      "countryCode": "SA",
+      "latitude": "22.29926149974121",
+      "longitude": "45.33070550507748",
+      "host_location": "Wadi ad-Dawasir Saudi Arabia",
+      "id": 13
     }
   ]
 }
