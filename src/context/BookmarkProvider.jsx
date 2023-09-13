@@ -1,5 +1,4 @@
 import { createContext, useContext, useState } from "react";
-// import { useSearchParams } from "react-router-dom";
 import { useFetch } from "../hook/useFetch";
 
 const bookmarkContext = createContext();
@@ -19,5 +18,9 @@ export const BookmarkProvider = ({ children }) => {
 
 // eslint-disable-next-line react-refresh/only-export-components
 export function useBookmark() {
-  return useContext(bookmarkContext);
+  const result = useContext(bookmarkContext);
+  if (!result) {
+    console.log("not provider  useBookmark");
+  }
+  return result;
 }

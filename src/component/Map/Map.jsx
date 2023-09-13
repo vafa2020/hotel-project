@@ -6,22 +6,23 @@ import {
   useMap,
   useMapEvent,
 } from "react-leaflet";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useGeoLocation } from "../../hook/useGeoLocation";
+import { useLatLng } from "../../hook/useLatLng";
 export const Map = ({ MarkerList }) => {
-  const [searchparams] = useSearchParams();
+  const [lat, lng] = useLatLng();
+  console.log(lat,lng,"map");
   const [mapCenter, setMapCenter] = useState([32.4279, 53.688]);
-  const latitude = searchparams.get("lat");
-  const longitude = searchparams.get("lng");
+
   ///this state is for button access your loction .👇
   const { isGeoLoading, geoPosition, getGeoPosition } = useGeoLocation();
   ///-----
   useEffect(() => {
-    if (latitude && longitude) {
-      setMapCenter([latitude, longitude]);
+    if (lat && lng) {
+      setMapCenter([lat, lng]);
     }
-  }, [latitude, longitude]);
+  }, [lat, lng]);
   useEffect(() => {
     if (geoPosition.latitude && geoPosition.longitude) {
       setMapCenter([geoPosition.latitude, geoPosition.longitude]);
@@ -44,7 +45,7 @@ export const Map = ({ MarkerList }) => {
         />
         <ChangeCenter positon={mapCenter} />
         <DetectBookMark />
-        {MarkerList.map((item) => (
+        {MarkerList?.map((item) => (
           <Marker position={[item.latitude, item.longitude]} key={item.id}>
             <Popup>{item.host_location}</Popup>
           </Marker>

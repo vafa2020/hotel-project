@@ -7,10 +7,10 @@ import { Hotels } from "./component/Hotels/Hotels";
 import { HotelProvider } from "./context/HotelProvider";
 import { SingleHotel } from "./component/SingleHotel/SingleHotel";
 import { BookmarkList } from "./component/BookmarkList/BookmarkList";
-import { BookmarkAdd } from "./component/BookmarkAdd/BookmarkAdd";
 import { BookMarkLayout } from "./component/BookMarkLayout/BookMarkLayout";
 import { BookmarkProvider } from "./context/BookmarkProvider";
 import { SingleBookmark } from "./component/SingleBookmark/SingleBookmark";
+import { BookmarkAdd } from "./component/BookmarkAdd/BookmarkAdd";
 
 function App() {
   return (

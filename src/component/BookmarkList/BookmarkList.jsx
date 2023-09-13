@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 export const BookmarkList = () => {
   const { data, isLoading, currentBookmark } = useBookmark();
+
   if (isLoading) {
     return <p>loading...</p>;
   }
@@ -17,7 +18,9 @@ export const BookmarkList = () => {
         >
           <div
             className={
-              currentBookmark.id === item.id ? "bookmarkItem current-bookmark" : "bookmarkItem"
+              currentBookmark.id === item.id
+                ? "bookmarkItem current-bookmark"
+                : "bookmarkItem"
             }
           >
             <ReactCountryFlag svg countryCode={item.countryCode} />

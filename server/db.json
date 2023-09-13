@@ -1368,6 +1368,24 @@
       "longitude": "67.78003711374224",
       "host_location": "Baba Kot Pakistan",
       "id": 8
+    },
+    {
+      "country": "Spain",
+      "cityName": "Madrid",
+      "countryCode": "ES",
+      "latitude": "40.43299210593957",
+      "longitude": "-3.696259009780756",
+      "host_location": "Madrid Spain",
+      "id": 9507
+    },
+    {
+      "cityName": "Jebrat al Sheikh District",
+      "country": "Sudan (the)",
+      "countryCode": "SD",
+      "latitude": "14.79081652429784",
+      "longitude": "30.748142913214863",
+      "host_location": "Jebrat al Sheikh District Sudan (the)",
+      "id": 811
     }
   ]
 }
