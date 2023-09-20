@@ -8,10 +8,10 @@ export const useFetch = (url, query = "") => {
 
   useEffect(() => {
     async function fetchData() {
+      setIsLoading(true);
       try {
-        setIsLoading(true);
         const { data } = await axios.get(`${url}?${query}`);
-      
+
         setData(data);
       } catch (error) {
         setData([]);

@@ -6,10 +6,10 @@ import { useEffect } from "react";
 export const SingleHotel = () => {
   const { id } = useParams();
   const { isLoading, data } = useFetch(`http://localhost:5000/hotels/${id}`);
-  const { setCurrentHotel } = useHotel();
+  const { getCurrentHotel } = useHotel();
   useEffect(() => {
-    setCurrentHotel(data);
-  }, [data, setCurrentHotel]);
+    getCurrentHotel(id);
+  }, [id, getCurrentHotel]);
   if (isLoading) {
     return <p>loading...</p>;
   }
