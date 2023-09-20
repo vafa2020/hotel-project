@@ -11,28 +11,39 @@ import { BookMarkLayout } from "./component/BookMarkLayout/BookMarkLayout";
 import { BookmarkProvider } from "./context/BookmarkProvider";
 import { SingleBookmark } from "./component/SingleBookmark/SingleBookmark";
 import { BookmarkAdd } from "./component/BookmarkAdd/BookmarkAdd";
+import { Login } from "./component/Login/Login";
+import { AuthProvider } from "./context/AuthProvider";
+import { ProtectedRoute } from "./component/ProtectedRoute/ProtectedRoute";
 
 function App() {
   return (
-    <>
-      <Header />
+    <AuthProvider>
       <BookmarkProvider>
         <HotelProvider>
+          <Header />
           <Routes>
             <Route path="/" element={<LocationList />} />
             <Route path="/hotels" element={<AppLayout />}>
               <Route index element={<Hotels />} />
               <Route path=":id" element={<SingleHotel />} />
             </Route>
-            <Route path="/bookmark" element={<BookMarkLayout />}>
-              <Route index element={<BookmarkList />} />
+            <Route path="/bookmarks" element={<BookMarkLayout />}>
+              <Route
+                index
+                element={
+                  <ProtectedRoute>
+                    <BookmarkList />
+                  </ProtectedRoute>
+                }
+              />
               <Route path=":id" element={<SingleBookmark />} />
               <Route path="add" element={<BookmarkAdd />} />
             </Route>
+            <Route path="/login" element={<Login />} />
           </Routes>
         </HotelProvider>
       </BookmarkProvider>
-    </>
+    </AuthProvider>
   );
 }
 
